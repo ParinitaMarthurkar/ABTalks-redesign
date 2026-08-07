@@ -75,3 +75,11 @@ Create the project foundation by defining TypeScript interfaces, mock data model
 
 ### Outcome
 Implemented the project's folder structure, TypeScript interfaces, mock data, and edge state definitions to establish a reusable foundation for the application.
+
+## Prompt 9 – Design System
+
+### Prompt
+Implement the application's design system by defining global theme tokens, typography, colors, spacing, radius, shadows, layout defaults, and utility classes before building reusable UI components.
+
+### Outcome
+Implemented the global design system using Tailwind CSS v4 theme variables and utility classes. Configured typography, layout defaults, color palette, spacing, radius, shadows, and reusable styling foundations for future UI components.
