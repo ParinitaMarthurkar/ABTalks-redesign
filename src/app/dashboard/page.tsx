@@ -1,7 +1,7 @@
 import AchievementCard from "../components/dashboard/AchievementCard";
 import MetricCard from "../components/dashboard/MetricCard";
 import MilestoneCard from "../components/dashboard/MilestoneCard";
-import RecentSubmissionsCard from "../components/dashboard/RecentSubmissionCard";
+import RecentSubmissionCard from "../components/dashboard/RecentSubmissionCard";
 import TodayChallengeCard from "../components/dashboard/TodayChallengeCard";
 
 import { challenge } from "../data/challenge";
@@ -23,8 +23,8 @@ export default function DashboardPage() {
                     </h1>
 
                     <p className="text-sm leading-6 text-text-secondary">
-                        You&apos;re {user.nextMilestone.daysRemaining} days away from your next
-                        milestone.
+                        You&apos;re {user.nextMilestone.daysRemaining} days away
+                        from your next milestone.
                     </p>
                 </section>
 
@@ -88,7 +88,7 @@ export default function DashboardPage() {
                 </section>
 
                 {/* Recent Submissions */}
-                <RecentSubmissionsCard
+                <RecentSubmissionCard
                     githubTimestamp={
                         progress.recentActivity.find(
                             (activity) => activity.type === "GitHub"
