@@ -38,7 +38,6 @@ export default function ChallengeDayPage() {
 
                 {/* Task */}
                 <TaskCard
-                    title={challenge.title}
                     description={challenge.description}
                 />
 
@@ -48,13 +47,19 @@ export default function ChallengeDayPage() {
                         Requirements
                     </h2>
 
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                         {challenge.requirements.map((requirement) => (
                             <li
                                 key={requirement}
-                                className="rounded-[var(--radius-button)] border border-border bg-surface px-4 py-3 text-sm text-text-secondary"
+                                className="flex items-center gap-3 rounded-[var(--radius-button)] border border-border bg-surface px-4 py-3"
                             >
-                                • {requirement}
+                                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                                    ✓
+                                </span>
+
+                                <span className="text-sm text-text-primary">
+                                    {requirement}
+                                </span>
                             </li>
                         ))}
                     </ul>
@@ -105,24 +110,36 @@ export default function ChallengeDayPage() {
                     </h2>
 
                     <div className="space-y-4">
-                        <Input
-                            label="GitHub Repository / Commit"
-                            placeholder="https://github.com/..."
-                        />
+                        <div className="space-y-2">
+                            <Input
+                                label="GitHub Repository / Commit"
+                                placeholder="https://github.com/..."
+                            />
 
-                        <Input
-                            label="LinkedIn Post"
-                            placeholder="https://linkedin.com/..."
-                        />
+                            <p className="text-xs text-text-secondary">
+                                Required to verify your submission.
+                            </p>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Input
+                                label="LinkedIn Post"
+                                placeholder="https://linkedin.com/..."
+                            />
+
+                            <p className="text-xs text-text-secondary">
+                                Optional, but recommended for building in public.
+                            </p>
+                        </div>
 
                         <Textarea
                             label="Submission Notes"
-                            placeholder="Share what you built today..."
-                            rows={4}
+                            placeholder="Briefly describe your approach, challenges you faced, and what you learned..."
+                            rows={5}
                         />
 
-                        <p className="text-sm text-text-secondary">
-                            Double-check your links before submitting.
+                        <p className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text-secondary">
+                            Double-check that your GitHub repository is public and your links are accessible before submitting.
                         </p>
 
                         <Button fullWidth>

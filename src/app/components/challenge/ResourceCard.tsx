@@ -28,9 +28,13 @@ export default function ResourceCard({
                 </div>
 
                 <div className="flex min-w-0 flex-1 flex-col">
-                    <h3 className="text-lg font-semibold text-text-primary">
+                    <h3 className="text-base font-semibold text-text-primary">
                         {title}
                     </h3>
+
+                    <p className="mt-1 text-sm text-text-secondary">
+                        Official Documentation
+                    </p>
 
                     {description && (
                         <p className="mt-2 text-sm leading-6 text-text-secondary">
@@ -44,7 +48,7 @@ export default function ResourceCard({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-primary hover:underline"
+                className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition hover:bg-primary/20"
             >
                 Open ↗
             </a>

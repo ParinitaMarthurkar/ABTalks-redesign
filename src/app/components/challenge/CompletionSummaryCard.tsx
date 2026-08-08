@@ -32,44 +32,43 @@ export default function CompletionSummaryCard({
                 </h3>
             </div>
 
-            <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-success/10 text-success">
-                        ✓
-                    </div>
-
-                    <div>
-                        <p className="text-sm font-medium text-text-primary">
-                            Challenge Completed
-                        </p>
-
-                        <p className="text-sm text-text-secondary">
-                            Your submission has been recorded successfully.
-                        </p>
-                    </div>
+            <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    📈
                 </div>
 
-                <div className="border-t border-border" />
+                <div>
+                    <p className="text-sm font-medium text-text-primary">
+                        Keep Going
+                    </p>
 
-                <div className="flex items-center justify-between">
-                    <span className="text-sm text-text-secondary">
-                        Current Streak
-                    </span>
-
-                    <span className="font-semibold text-text-primary">
-                        {currentStreak} Days
-                    </span>
+                    <p className="text-sm text-text-secondary">
+                        Complete today&apos;s challenge and submit your work to
+                        extend your streak.
+                    </p>
                 </div>
+            </div>
 
-                <div className="flex items-center justify-between">
-                    <span className="text-sm text-text-secondary">
-                        Next Milestone
-                    </span>
+            <div className="border-t border-border" />
 
-                    <span className="font-semibold text-primary">
-                        {nextMilestone}
-                    </span>
-                </div>
+            <div className="flex items-center justify-between">
+                <span className="text-sm text-text-secondary">
+                    Current Streak
+                </span>
+
+                <span className="font-semibold text-text-primary">
+                    {currentStreak} Days
+                </span>
+            </div>
+
+            <div className="flex items-center justify-between">
+                <span className="text-sm text-text-secondary">
+                    Next Milestone
+                </span>
+
+                <span className="font-semibold text-primary">
+                    {nextMilestone}
+                </span>
             </div>
         </Card>
     );

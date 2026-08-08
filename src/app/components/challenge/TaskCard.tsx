@@ -4,13 +4,11 @@ import { cn } from "../../lib/utils";
 
 export interface TaskCardProps
     extends HTMLAttributes<HTMLDivElement> {
-    title: string;
     description: string;
     className?: string;
 }
 
 export default function TaskCard({
-    title,
     description,
     className,
     ...props
@@ -20,13 +18,9 @@ export default function TaskCard({
             className={cn("flex flex-col gap-4", className)}
             {...props}
         >
-            <div className="space-y-2">
-                <p className="text-sm font-medium text-text-secondary">
-                    Today&apos;s Challenge
-                </p>
-
+            <div className="space-y-3">
                 <h2 className="text-lg font-semibold text-text-primary">
-                    {title}
+                    Challenge Details
                 </h2>
 
                 <p className="text-sm leading-6 text-text-secondary">
