@@ -1,50 +1,50 @@
 import { HTMLAttributes } from "react";
-import Button from "../ui/Button";
 import { cn } from "../../lib/utils";
 
-export interface HeroProps extends HTMLAttributes<HTMLElement> {
+export interface HowItWorksProps extends HTMLAttributes<HTMLElement> {
     className?: string;
 }
 
-export default function Hero({
+const steps = ["Learn", "Build", "Share", "Grow"];
+
+export default function HowItWorks({
     className,
     ...props
-}: HeroProps) {
+}: HowItWorksProps) {
     return (
         <section
-            className={cn(
-                "px-4 pt-12 pb-10 text-center",
-                className
-            )}
+            className={cn("px-4 py-8", className)}
             {...props}
         >
-            <div className="mx-auto flex max-w-sm flex-col items-center gap-6">
-                {/* Logo / Brand */}
-                <div className="flex flex-col items-center gap-2">
-                    <span className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-primary shadow-[var(--shadow-card)]">
-                        ABTalks
-                    </span>
+            <div className="mx-auto flex max-w-sm flex-col items-center gap-8">
+                <div className="text-center">
+                    <h2 className="text-xl font-semibold text-text-primary">
+                        How ABTalks Works
+                    </h2>
 
-                    <h1 className="text-[30px] font-bold leading-[1.2] text-text-primary">
-                        Build in public.
-                        <br />
-                        Grow with consistency.
-                    </h1>
-
-                    <p className="max-w-xs text-base leading-6 text-text-secondary">
-                        Build a portfolio recruiters can actually see.
+                    <p className="mt-2 text-sm leading-6 text-text-secondary">
+                        One small challenge every day. Build consistently and showcase your
+                        progress publicly.
                     </p>
                 </div>
 
-                {/* Primary CTA */}
                 <div className="flex w-full flex-col items-center gap-3">
-                    <Button fullWidth>
-                        Start Challenge
-                    </Button>
+                    {steps.map((step, index) => (
+                        <div
+                            key={step}
+                            className="flex flex-col items-center gap-3"
+                        >
+                            <div className="w-full rounded-[var(--radius-card)] border border-border bg-surface px-6 py-4 text-center shadow-[var(--shadow-card)]">
+                                <span className="text-lg font-semibold text-text-primary">
+                                    {step}
+                                </span>
+                            </div>
 
-                    <p className="text-sm leading-5 text-text-secondary">
-                        No setup. Start today&apos;s challenge in under a minute.
-                    </p>
+                            {index < steps.length - 1 && (
+                                <span className="text-xl text-text-secondary">↓</span>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

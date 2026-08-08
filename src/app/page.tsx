@@ -1,7 +1,17 @@
-export default function Home() {
+import Hero from "./components/landing/Hero";
+import HowItWorks from "./components/landing/HowItWorks";
+import WhyChooseSection from "./components/landing/WhyChooseSection";
+import ChallengePreviewSection from "./components/landing/ChallengePreviewSection";
+import FinalCTA from "./components/landing/FinalCTA";
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
-      <h1 className="text-4xl font-bold">ABTalks Redesign 🚀</h1>
+    <main className="flex flex-col">
+      <Hero />
+      <HowItWorks />
+      <WhyChooseSection />
+      <ChallengePreviewSection />
+      <FinalCTA />
     </main>
   );
 }

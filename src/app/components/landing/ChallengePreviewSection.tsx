@@ -48,11 +48,6 @@ export default function ChallengePreviewSection({
                                 Responsive Dashboard
                             </h3>
 
-                            <div>
-                                <h3 className="text-xl font-semibold text-text-primary">
-                                    Responsive Dashboard
-                                </h3>
-                            </div>
                         </div>
 
                         <Button variant="secondary" fullWidth>

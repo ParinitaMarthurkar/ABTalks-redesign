@@ -20,12 +20,6 @@ export default function FinalCTA({
                     <h2 className="text-xl font-semibold text-text-primary">
                         Ready to build for 60 days?
                     </h2>
-
-                    <div>
-                        <h2 className="text-xl font-semibold text-text-primary">
-                            Ready to build for 60 days?
-                        </h2>
-                    </div>
                 </div>
 
                 <Button fullWidth>
