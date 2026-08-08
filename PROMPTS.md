@@ -83,3 +83,35 @@ Implement the application's design system by defining global theme tokens, typog
 
 ### Outcome
 Implemented the global design system using Tailwind CSS v4 theme variables and utility classes. Configured typography, layout defaults, color palette, spacing, radius, shadows, and reusable styling foundations for future UI components.
+
+---
+
+## Prompt 10 – Reusable UI Components
+
+### Prompt
+
+Build reusable UI primitives for the application without implementing any page-specific features. Create generic, type-safe React components that follow the frozen design system and can be reused throughout the project.
+
+### Components Built
+
+- Button
+- Card
+- Badge
+- ProgressBar
+- Input
+- Textarea
+- SectionHeader
+- EmptyState
+
+### Decisions
+
+- Used TypeScript for all component props.
+- Extended native HTML element attributes where appropriate.
+- Used a shared `cn()` utility for class merging.
+- Used variant objects instead of Class Variance Authority (CVA).
+- Avoided hardcoded ABTalks-specific content.
+- Kept components generic and reusable.
+
+### Outcome
+
+Established a reusable UI component library that will be used to build the Landing Page, Dashboard, and Challenge Day screens.
