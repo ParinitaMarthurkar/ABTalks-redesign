@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
@@ -50,9 +51,11 @@ export default function ChallengePreviewSection({
 
                         </div>
 
-                        <Button variant="secondary" fullWidth>
-                            Preview Today&apos;s Challenge →
-                        </Button>
+                        <Link href="/day/12" className="w-full">
+                            <Button variant="secondary" fullWidth>
+                                Preview Today&apos;s Challenge →
+                            </Button>
+                        </Link>
                     </div>
                 </Card>
             </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import type { Difficulty } from "../../types/challenge";
 import Badge from "../ui/Badge";
@@ -12,7 +13,6 @@ export interface TodayChallengeCardProps
     difficulty: Difficulty;
     estimatedTime: string;
     description: string;
-    onStart?: () => void;
     className?: string;
 }
 
@@ -22,7 +22,6 @@ export default function TodayChallengeCard({
     difficulty,
     estimatedTime,
     description,
-    onStart,
     className,
     ...props
 }: TodayChallengeCardProps) {
@@ -50,12 +49,11 @@ export default function TodayChallengeCard({
                 </p>
             </div>
 
-            <Button
-                fullWidth
-                onClick={onStart}
-            >
-                Start Challenge
-            </Button>
+            <Link href="/day/12" className="w-full">
+                <Button fullWidth>
+                    Start Challenge
+                </Button>
+            </Link>
         </Card>
     );
 }

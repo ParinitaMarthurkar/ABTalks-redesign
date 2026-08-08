@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import Button from "../ui/Button";
 import { cn } from "../../lib/utils";
@@ -22,9 +23,11 @@ export default function FinalCTA({
                     </h2>
                 </div>
 
-                <Button fullWidth>
-                    Start Challenge
-                </Button>
+                <Link href="/dashboard" className="w-full">
+                    <Button fullWidth>
+                        Start Challenge
+                    </Button>
+                </Link>
             </div>
         </section>
     );

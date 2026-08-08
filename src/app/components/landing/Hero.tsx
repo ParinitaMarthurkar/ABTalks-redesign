@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import Button from "../ui/Button";
 import { cn } from "../../lib/utils";
@@ -38,10 +39,11 @@ export default function Hero({
 
                 {/* Primary CTA */}
                 <div className="flex w-full flex-col items-center gap-3">
-                    <Button fullWidth>
-                        Start Challenge
-                    </Button>
-
+                    <Link href="/dashboard" className="w-full">
+                        <Button fullWidth>
+                            Start Challenge
+                        </Button>
+                    </Link>
                     <p className="text-sm leading-5 text-text-secondary">
                         No setup. Start today&apos;s challenge in under a minute.
                     </p>
