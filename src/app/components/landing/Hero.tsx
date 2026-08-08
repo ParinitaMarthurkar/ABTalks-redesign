@@ -14,40 +14,61 @@ export default function Hero({
     return (
         <section
             className={cn(
-                "px-4 pt-12 pb-10 text-center",
+                "px-6 pt-16 pb-12",
                 className
             )}
             {...props}
         >
-            <div className="mx-auto flex max-w-sm flex-col items-center gap-6">
-                {/* Logo / Brand */}
-                <div className="flex flex-col items-center gap-2">
-                    <span className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-primary shadow-[var(--shadow-card)]">
+            <div className="mx-auto flex max-w-sm flex-col gap-8">
+
+                {/* Brand */}
+                <div className="inline-flex w-fit rounded-full border border-border bg-surface px-4 py-2 shadow-sm">
+                    <span className="text-sm font-semibold tracking-wide text-primary">
                         ABTalks
                     </span>
+                </div>
 
-                    <h1 className="text-[30px] font-bold leading-[1.2] text-text-primary">
-                        Build in public.
+                {/* Hero */}
+                <div className="space-y-5">
+
+                    <p className="text-sm font-medium uppercase tracking-[0.25em] text-primary">
+                        Build • Commit • Grow
+                    </p>
+
+                    <h1 className="text-5xl font-bold leading-tight text-text-primary">
+                        Build in
                         <br />
-                        Grow with consistency.
+                        Public.
                     </h1>
 
-                    <p className="max-w-xs text-base leading-6 text-text-secondary">
-                        Build a portfolio recruiters can actually see.
+                    <p className="text-lg leading-8 text-text-secondary">
+                        One challenge every day.
+                        <br />
+                        One portfolio recruiters
+                        actually notice.
                     </p>
+
                 </div>
 
-                {/* Primary CTA */}
-                <div className="flex w-full flex-col items-center gap-3">
-                    <Link href="/dashboard" className="w-full">
+                {/* CTA */}
+
+                <div className="space-y-3">
+
+                    <Link
+                        href="/dashboard"
+                        className="block w-full"
+                    >
                         <Button fullWidth>
-                            Start Challenge
+                            Start Building
                         </Button>
                     </Link>
-                    <p className="text-sm leading-5 text-text-secondary">
-                        No setup. Start today&apos;s challenge in under a minute.
+
+                    <p className="text-sm text-text-secondary">
+                        Start your 60-day journey in under a minute.
                     </p>
+
                 </div>
+
             </div>
         </section>
     );
