@@ -1,13 +1,6 @@
-export function getCompletionPercentage(
-    completedDays: number,
-    totalDays: number
-): number {
-    return Math.round((completedDays / totalDays) * 100);
-}
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export function getRemainingDays(
-    completedDays: number,
-    totalDays: number
-): number {
-    return totalDays - completedDays;
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
 }
