@@ -36,12 +36,18 @@ export default async function DashboardPage() {
                                 Hi, {user.name} 👋
                             </h1>
 
-                            <p className="mt-3 leading-7 text-text-secondary">
-                                Day {user.currentDay} of {user.totalDays}
-                                <br />
-                                Keep building. You&apos;re only{" "}
-                                {user.nextMilestone.daysRemaining} days away
-                                from your next milestone.
+                            <p className="mt-4 text-lg leading-8 text-text-secondary">
+                                You're on <span className="font-semibold text-primary">
+                                    Day {user.currentDay}
+                                </span> of your 60-day journey.
+
+                                <br /><br />
+
+                                Only{" "}
+                                <span className="font-semibold text-primary">
+                                    {user.nextMilestone.daysRemaining} days
+                                </span>{" "}
+                                until your next milestone.
                             </p>
 
                         </div>

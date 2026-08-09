@@ -1,7 +1,8 @@
 import type { Challenge } from "../types";
 
-const API_URL = "http://127.0.0.1:8000";
-
+const API_URL =
+    process.env.NEXT_PUBLIC_API_URL ??
+    "http://127.0.0.1:8000";
 export async function getTodayChallenge(): Promise<Challenge> {
     const response = await fetch(`${API_URL}/challenge/today`, {
         cache: "no-store",

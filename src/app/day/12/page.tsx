@@ -46,24 +46,7 @@ export default async function ChallengeDayPage() {
                     description={challenge.description}
                 />
 
-                {/* Requirements */}
-                <section className="space-y-4">
-                    <h2 className="text-lg font-semibold text-text-primary">
-                        Requirements
-                    </h2>
 
-                    <ul className="space-y-3">
-                        {challenge.requirements.map((requirement) => (
-                            <li
-                                key={requirement}
-                                className="flex items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3"
-                            >
-                                <span>✓</span>
-                                <span>{requirement}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
 
                 {/* Skills */}
                 <section className="space-y-4">
