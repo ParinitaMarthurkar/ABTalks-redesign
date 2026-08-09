@@ -1,6 +1,8 @@
+from database import Base, engine
+import models
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="ABTalks API",
     version="1.0.0",
