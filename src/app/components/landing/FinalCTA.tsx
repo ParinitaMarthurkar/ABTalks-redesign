@@ -13,21 +13,35 @@ export default function FinalCTA({
 }: FinalCTAProps) {
     return (
         <section
-            className={cn("px-4 py-10", className)}
+            className={cn("px-6 py-16", className)}
             {...props}
         >
-            <div className="mx-auto flex max-w-sm flex-col items-center gap-6 rounded-[var(--radius-card)] border border-border bg-surface p-6 text-center shadow-[var(--shadow-card)]">
-                <div className="space-y-2">
-                    <h2 className="text-xl font-semibold text-text-primary">
-                        Ready to build for 60 days?
-                    </h2>
-                </div>
+            <div className="mx-auto max-w-sm rounded-[32px] border border-border/60 bg-surface p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
 
-                <Link href="/dashboard" className="w-full">
+                <span className="rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+                    60-Day Challenge
+                </span>
+
+                <h2 className="mt-6 text-3xl font-bold leading-tight text-text-primary">
+                    Ready to build
+                    <br />
+                    something amazing?
+                </h2>
+
+                <p className="mt-4 leading-7 text-text-secondary">
+                    Join hundreds of students building projects, sharing their
+                    work, and growing one challenge at a time.
+                </p>
+
+                <Link
+                    href="/dashboard"
+                    className="mt-8 block"
+                >
                     <Button fullWidth>
-                        Start Challenge
+                        Start Building
                     </Button>
                 </Link>
+
             </div>
         </section>
     );

@@ -1,6 +1,5 @@
 import Badge from "../ui/Badge";
 import Card from "../ui/Card";
-import Button from "../ui/Button";
 
 export default function HeroStats() {
     return (
@@ -105,15 +104,15 @@ export default function HeroStats() {
                         layouts.
                     </p>
 
-                    <div className="mt-5 flex items-center justify-between">
+                    <div className="mt-6 flex items-center justify-between">
 
                         <span className="text-sm font-medium text-text-secondary">
                             ⏱ 25 mins
                         </span>
 
-                        <Button size="sm">
-                            Preview Challenge
-                        </Button>
+                        <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                            Ready to Build
+                        </span>
 
                     </div>
 
