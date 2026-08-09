@@ -21,27 +21,36 @@ export default function MetricCard({
 }: MetricCardProps) {
     return (
         <Card
-            className={cn("flex items-start gap-4", className)}
+            className={cn(
+                "rounded-[28px] border border-border/60 bg-surface p-5 shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+                className
+            )}
             {...props}
         >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                {icon}
-            </div>
+            <div className="flex items-center justify-between">
 
-            <div className="flex min-w-0 flex-1 flex-col">
-                <p className="text-sm font-medium text-text-secondary">
-                    {title}
-                </p>
+                <div>
 
-                <h3 className="mt-1 text-xl font-bold leading-tight text-text-primary">
-                    {value}
-                </h3>
-
-                {subtitle && (
-                    <p className="mt-1 text-sm leading-5 text-text-secondary">
-                        {subtitle}
+                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-text-secondary">
+                        {title}
                     </p>
-                )}
+
+                    <h3 className="mt-3 text-3xl font-bold leading-none text-text-primary">
+                        {value}
+                    </h3>
+
+                    {subtitle && (
+                        <p className="mt-2 text-sm leading-6 text-text-secondary">
+                            {subtitle}
+                        </p>
+                    )}
+
+                </div>
+
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-2xl text-primary">
+                    {icon}
+                </div>
+
             </div>
         </Card>
     );

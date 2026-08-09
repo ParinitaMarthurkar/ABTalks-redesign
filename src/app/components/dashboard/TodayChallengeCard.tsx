@@ -71,7 +71,7 @@ export default function TodayChallengeCard({
 
                 <div>
                     <p className="text-sm text-text-secondary">
-                        Today's Goal
+                        Today&apos;s Goal
                     </p>
 
                     <p className="font-semibold text-text-primary">
