@@ -3,6 +3,7 @@ import type { Challenge } from "../types";
 const API_URL =
     process.env.NEXT_PUBLIC_API_URL ??
     "http://127.0.0.1:8000";
+
 export async function getTodayChallenge(): Promise<Challenge> {
     const response = await fetch(`${API_URL}/challenge/today`, {
         cache: "no-store",
@@ -14,8 +15,9 @@ export async function getTodayChallenge(): Promise<Challenge> {
 
     return (await response.json()) as Challenge;
 }
+
 export async function getUser() {
-    const response = await fetch("http://127.0.0.1:8000/user", {
+    const response = await fetch(`${API_URL}/user`, {
         cache: "no-store",
     });
 
@@ -27,7 +29,7 @@ export async function getUser() {
 }
 
 export async function getProgress() {
-    const response = await fetch("http://127.0.0.1:8000/progress", {
+    const response = await fetch(`${API_URL}/progress`, {
         cache: "no-store",
     });
 
@@ -37,13 +39,14 @@ export async function getProgress() {
 
     return response.json();
 }
+
 export async function submitChallenge(data: {
     challenge_day: number;
     github_url: string;
     linkedin_url: string;
     notes: string;
 }) {
-    const response = await fetch("http://127.0.0.1:8000/submission", {
+    const response = await fetch(`${API_URL}/submission`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -57,13 +60,11 @@ export async function submitChallenge(data: {
 
     return response.json();
 }
+
 export async function getSubmission(day: number) {
-    const response = await fetch(
-        `http://127.0.0.1:8000/submission/${day}`,
-        {
-            cache: "no-store",
-        }
-    );
+    const response = await fetch(`${API_URL}/submission/${day}`, {
+        cache: "no-store",
+    });
 
     if (!response.ok) {
         throw new Error("Failed to fetch submission");
