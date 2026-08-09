@@ -4,11 +4,28 @@ import MilestoneCard from "../components/dashboard/MilestoneCard";
 import RecentSubmissionCard from "../components/dashboard/RecentSubmissionCard";
 import TodayChallengeCard from "../components/dashboard/TodayChallengeCard";
 
-import { challenge } from "../data/challenge";
-import { progress } from "../data/progress";
-import { user } from "../data/user";
+import {
+    getTodayChallenge,
+    getProgress,
+    getUser,
+} from "../lib/api";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+    const user = await getUser();
+
+    // Temporary values
+    const progress = {
+        achievements: [],
+        recentActivity: [],
+    };
+
+    const challenge = {
+        day: 12,
+        title: "",
+        difficulty: "",
+        estimatedTime: "",
+        description: "",
+    };
     return (
         <main className="min-h-screen bg-background px-6 py-8">
             <div className="mx-auto flex max-w-sm flex-col gap-8">

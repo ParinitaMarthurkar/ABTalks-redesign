@@ -7,11 +7,14 @@ import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
 import Textarea from "../../components/ui/Textarea";
 
-import { challenge } from "../../data/challenge";
+import { getTodayChallenge } from "../../lib/api";
 import { submission } from "../../data/submission";
 import { user } from "../../data/user";
+export default async function ChallengeDayPage() {
+    const challenge = await getTodayChallenge();
+    console.log("submission:", submission);
+    console.log("checklist:", submission.checklist);
 
-export default function ChallengeDayPage() {
     return (
         <main className="min-h-screen bg-background px-4 py-8">
             <div className="mx-auto flex max-w-sm flex-col gap-6">

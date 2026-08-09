@@ -10,15 +10,17 @@ export interface SubmissionChecklistItem {
 
 export interface SubmissionChecklistProps
     extends HTMLAttributes<HTMLDivElement> {
-    items: SubmissionChecklistItem[];
+    items?: SubmissionChecklistItem[];
     className?: string;
 }
 
 export default function SubmissionChecklist({
-    items,
+    items = [],
     className,
     ...props
 }: SubmissionChecklistProps) {
+    console.log("SubmissionChecklist items:", items);
+
     return (
         <Card
             className={cn(
@@ -42,53 +44,59 @@ export default function SubmissionChecklist({
             </div>
 
             <div className="mt-6 space-y-4">
-                {items.map((item, index) => (
-                    <div
-                        key={item.title}
-                        className={cn(
-                            "flex items-center gap-4 rounded-2xl border p-4 transition-all duration-300",
-                            item.completed
-                                ? "border-primary/20 bg-primary/5"
-                                : "border-border bg-surface"
-                        )}
-                    >
+                {items.length === 0 ? (
+                    <p className="text-sm text-text-secondary">
+                        No checklist items available.
+                    </p>
+                ) : (
+                    items.map((item, index) => (
                         <div
+                            key={item.title}
                             className={cn(
-                                "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
+                                "flex items-center gap-4 rounded-2xl border p-4 transition-all duration-300",
                                 item.completed
-                                    ? "bg-primary text-white"
-                                    : "bg-background border border-border text-text-secondary"
+                                    ? "border-primary/20 bg-primary/5"
+                                    : "border-border bg-surface"
                             )}
                         >
-                            {item.completed ? (
-                                <Check size={18} strokeWidth={3} />
-                            ) : (
-                                <span className="text-sm font-semibold">
-                                    {index + 1}
+                            <div
+                                className={cn(
+                                    "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
+                                    item.completed
+                                        ? "bg-primary text-white"
+                                        : "border border-border bg-background text-text-secondary"
+                                )}
+                            >
+                                {item.completed ? (
+                                    <Check size={18} strokeWidth={3} />
+                                ) : (
+                                    <span className="text-sm font-semibold">
+                                        {index + 1}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="flex-1">
+                                <p
+                                    className={cn(
+                                        "font-medium",
+                                        item.completed
+                                            ? "text-text-primary"
+                                            : "text-text-secondary"
+                                    )}
+                                >
+                                    {item.title}
+                                </p>
+                            </div>
+
+                            {item.completed && (
+                                <span className="text-xs font-semibold uppercase tracking-wide text-primary">
+                                    Done
                                 </span>
                             )}
                         </div>
-
-                        <div className="flex-1">
-                            <p
-                                className={cn(
-                                    "font-medium",
-                                    item.completed
-                                        ? "text-text-primary"
-                                        : "text-text-secondary"
-                                )}
-                            >
-                                {item.title}
-                            </p>
-                        </div>
-
-                        {item.completed && (
-                            <span className="text-xs font-semibold uppercase tracking-wide text-primary">
-                                Done
-                            </span>
-                        )}
-                    </div>
-                ))}
+                    ))
+                )}
             </div>
         </Card>
     );
