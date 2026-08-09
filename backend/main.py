@@ -2,6 +2,12 @@ from database import Base, engine
 import models
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy.orm import Session
+from fastapi import Depends
+import schemas
+
+import crud
+from database import get_db
 Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="ABTalks API",
@@ -73,14 +79,29 @@ def today_challenge():
 
 
 @app.get("/user")
-def get_user():
+def get_user(db: Session = Depends(get_db)):
+    user = crud.get_user(db)
+
+    if user is None:
+        user = crud.create_user(
+            db,
+            schemas.UserCreate(
+                name="Parinita",
+                current_day=12,
+                total_days=60,
+                streak=11,
+                completion=20,
+                standing="Top 12%",
+            ),
+        )
+
     return {
-        "name": "Parinita",
-        "currentDay": 12,
-        "totalDays": 60,
-        "streak": 11,
-        "completion": 20,
-        "standing": "Top 12%",
+        "name": user.name,
+        "currentDay": user.current_day,
+        "totalDays": user.total_days,
+        "streak": user.streak,
+        "completion": user.completion,
+        "standing": user.standing,
         "nextMilestone": {
             "title": "15 Day Streak",
             "daysRemaining": 3,
