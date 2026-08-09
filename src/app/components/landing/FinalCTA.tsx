@@ -1,6 +1,4 @@
-import Link from "next/link";
 import { HTMLAttributes } from "react";
-import Button from "../ui/Button";
 import { cn } from "../../lib/utils";
 
 export interface FinalCTAProps extends HTMLAttributes<HTMLElement> {
@@ -32,15 +30,6 @@ export default function FinalCTA({
                     Join hundreds of students building projects, sharing their
                     work, and growing one challenge at a time.
                 </p>
-
-                <Link
-                    href="/dashboard"
-                    className="mt-8 block"
-                >
-                    <Button fullWidth>
-                        Start Building
-                    </Button>
-                </Link>
 
             </div>
         </section>
