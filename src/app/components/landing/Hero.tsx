@@ -50,22 +50,32 @@ export default function Hero({
 
                 </div>
 
-                {/* CTA */}
+                {/* Premium CTA Card */}
+                <div className="rounded-[28px] border border-border bg-surface p-6 shadow-[var(--shadow-floating)] transition-all duration-300 hover:-translate-y-1">
 
-                <div className="space-y-3">
-
-                    <Link
-                        href="/dashboard"
-                        className="block w-full"
-                    >
-                        <Button fullWidth>
-                            Start Building
-                        </Button>
-                    </Link>
-
-                    <p className="text-sm text-text-secondary">
-                        Start your 60-day journey in under a minute.
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                        Start Today
                     </p>
+
+                    <h3 className="mt-2 text-xl font-bold text-text-primary">
+                        Start your 60-day coding journey
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-6 text-text-secondary">
+                        Complete one challenge every day, build consistently,
+                        and create a portfolio that demonstrates real progress.
+                    </p>
+
+                    <div className="mt-6">
+                        <Link
+                            href="/dashboard"
+                            className="block w-full"
+                        >
+                            <Button fullWidth>
+                                Start Building
+                            </Button>
+                        </Link>
+                    </div>
 
                 </div>
 

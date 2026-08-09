@@ -38,9 +38,7 @@ export default function Button({
     return (
         <button
             className={cn(
-                "inline-flex items-center justify-center rounded-[var(--radius-button)] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50",
-                buttonVariants[variant],
-                buttonSizes[size],
+                "inline-flex items-center justify-center rounded-[var(--radius-button)] font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50",
                 fullWidth && "w-full",
                 className
             )}

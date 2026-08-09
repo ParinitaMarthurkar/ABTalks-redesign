@@ -115,3 +115,51 @@ Build reusable UI primitives for the application without implementing any page-s
 ### Outcome
 
 Established a reusable UI component library that will be used to build the Landing Page, Dashboard, and Challenge Day screens.
+
+---
+
+## Prompt 11 – FastAPI Backend Foundation
+
+### Prompt
+
+Create a production-ready FastAPI backend for the ABTalks redesign with a clean folder structure, REST API endpoints, dependency management, and CORS configuration that can integrate with the existing Next.js frontend.
+
+### Outcome
+
+Built the FastAPI backend, configured project structure, added CORS support, created initial API endpoints, and established communication between the frontend and backend.
+
+---
+
+## Prompt 12 – PostgreSQL Integration
+
+### Prompt
+
+Replace mock backend data with PostgreSQL using SQLAlchemy ORM. Design database models, schemas, CRUD operations, database sessions, and environment configuration while following clean architecture principles.
+
+### Outcome
+
+Integrated PostgreSQL with SQLAlchemy, implemented User models, schemas and CRUD operations, configured environment variables, established database sessions, and enabled persistent storage for dashboard data.
+
+---
+
+## Prompt 13 – Frontend API Integration
+
+### Prompt
+
+Replace frontend mock data with live API requests while keeping the existing UI unchanged. Fetch dashboard data from the FastAPI backend, improve loading performance where appropriate, and preserve type safety.
+
+### Outcome
+
+Connected the Next.js dashboard to the FastAPI backend, replaced mock user data with live API responses, implemented reusable API helper functions, and prepared the application for fully dynamic backend-driven content.
+
+---
+
+## Prompt 14 – Debugging & Environment Configuration
+
+### Prompt
+
+Debug integration issues involving Python virtual environments, PostgreSQL connection strings, SQLAlchemy configuration, FastAPI routing, CRUD implementation, schema mismatches, and Next.js integration while preserving the overall project architecture.
+
+### Outcome
+
+Resolved virtual environment conflicts, fixed database connection issues, corrected CRUD implementation errors, aligned Pydantic schemas with database models, restored API functionality, and successfully completed end-to-end frontend–backend integration.

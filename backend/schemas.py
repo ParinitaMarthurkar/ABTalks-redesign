@@ -19,3 +19,22 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+
+class SubmissionBase(BaseModel):
+    challenge_day: int
+    github_url: str
+    linkedin_url: str
+    notes: str | None = None
+
+
+class SubmissionCreate(SubmissionBase):
+    pass
+
+
+class Submission(SubmissionBase):
+    id: int
+    completed: bool
+
+    class Config:
+        from_attributes = True

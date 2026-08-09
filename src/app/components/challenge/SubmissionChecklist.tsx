@@ -1,4 +1,6 @@
-import { HTMLAttributes } from "react";
+"use client";
+
+import { HTMLAttributes, useState } from "react";
 import { Check } from "lucide-react";
 import Card from "../ui/Card";
 import { cn } from "../../lib/utils";
@@ -19,12 +21,23 @@ export default function SubmissionChecklist({
     className,
     ...props
 }: SubmissionChecklistProps) {
-    console.log("SubmissionChecklist items:", items);
+
+    const [checklist, setChecklist] = useState(items);
+
+    function toggleItem(index: number) {
+        setChecklist((prev) =>
+            prev.map((item, i) =>
+                i === index
+                    ? { ...item, completed: !item.completed }
+                    : item
+            )
+        );
+    }
 
     return (
         <Card
             className={cn(
-                "rounded-[28px] border border-border/60 bg-surface p-6 shadow-[0_12px_32px_rgba(0,0,0,0.06)]",
+                "rounded-[28px] border border-border/60 bg-surface p-6 shadow-[var(--shadow-card)]",
                 className
             )}
             {...props}
@@ -44,59 +57,55 @@ export default function SubmissionChecklist({
             </div>
 
             <div className="mt-6 space-y-4">
-                {items.length === 0 ? (
-                    <p className="text-sm text-text-secondary">
-                        No checklist items available.
-                    </p>
-                ) : (
-                    items.map((item, index) => (
+                {checklist.map((item, index) => (
+                    <button
+                        key={item.title}
+                        type="button"
+                        onClick={() => toggleItem(index)}
+                        className={cn(
+                            "flex w-full items-center gap-4 rounded-2xl border p-4 text-left transition-all duration-300 hover:scale-[1.01]",
+                            item.completed
+                                ? "border-primary/20 bg-primary/5"
+                                : "border-border bg-surface"
+                        )}
+                    >
                         <div
-                            key={item.title}
                             className={cn(
-                                "flex items-center gap-4 rounded-2xl border p-4 transition-all duration-300",
+                                "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
                                 item.completed
-                                    ? "border-primary/20 bg-primary/5"
-                                    : "border-border bg-surface"
+                                    ? "bg-primary text-white"
+                                    : "border border-border bg-background text-text-secondary"
                             )}
                         >
-                            <div
-                                className={cn(
-                                    "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
-                                    item.completed
-                                        ? "bg-primary text-white"
-                                        : "border border-border bg-background text-text-secondary"
-                                )}
-                            >
-                                {item.completed ? (
-                                    <Check size={18} strokeWidth={3} />
-                                ) : (
-                                    <span className="text-sm font-semibold">
-                                        {index + 1}
-                                    </span>
-                                )}
-                            </div>
-
-                            <div className="flex-1">
-                                <p
-                                    className={cn(
-                                        "font-medium",
-                                        item.completed
-                                            ? "text-text-primary"
-                                            : "text-text-secondary"
-                                    )}
-                                >
-                                    {item.title}
-                                </p>
-                            </div>
-
-                            {item.completed && (
-                                <span className="text-xs font-semibold uppercase tracking-wide text-primary">
-                                    Done
+                            {item.completed ? (
+                                <Check size={18} strokeWidth={3} />
+                            ) : (
+                                <span className="text-sm font-semibold">
+                                    {index + 1}
                                 </span>
                             )}
                         </div>
-                    ))
-                )}
+
+                        <div className="flex-1">
+                            <p
+                                className={cn(
+                                    "font-medium",
+                                    item.completed
+                                        ? "text-text-primary"
+                                        : "text-text-secondary"
+                                )}
+                            >
+                                {item.title}
+                            </p>
+                        </div>
+
+                        {item.completed && (
+                            <span className="text-xs font-semibold uppercase tracking-wide text-primary">
+                                Done
+                            </span>
+                        )}
+                    </button>
+                ))}
             </div>
         </Card>
     );

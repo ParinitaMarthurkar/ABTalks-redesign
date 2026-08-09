@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 
 from database import Base
+from sqlalchemy import Column, Integer, String, Boolean, Text
 
 
 class User(Base):
@@ -13,3 +14,14 @@ class User(Base):
     streak = Column(Integer, default=0)
     completion = Column(Integer, default=0)
     standing = Column(String, default="Top 100%")
+
+
+class Submission(Base):
+    __tablename__ = "submissions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    challenge_day = Column(Integer, nullable=False)
+    github_url = Column(String, nullable=False)
+    linkedin_url = Column(String, nullable=False)
+    notes = Column(Text)
+    completed = Column(Boolean, default=True)

@@ -109,6 +109,24 @@ def get_user(db: Session = Depends(get_db)):
     }
 
 
+@app.post("/submission")
+def create_submission(
+    submission: schemas.SubmissionCreate,
+    db: Session = Depends(get_db),
+):
+    return crud.create_submission(db, submission)
+
+
+@app.get("/submission/{day}")
+def get_submission(day: int, db: Session = Depends(get_db)):
+    submission = crud.get_submission_by_day(db, day)
+
+    if submission is None:
+        return {"message": "No submission found"}
+
+    return submission
+
+
 @app.get("/progress")
 def get_progress():
     return {

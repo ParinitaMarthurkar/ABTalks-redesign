@@ -22,3 +22,37 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
 
     return db_user
+
+
+def create_submission(db: Session, submission: schemas.SubmissionCreate):
+
+    existing = (
+        db.query(models.Submission)
+        .filter(models.Submission.challenge_day == submission.challenge_day)
+        .first()
+    )
+
+    if existing:
+        return existing
+
+    db_submission = models.Submission(
+        challenge_day=submission.challenge_day,
+        github_url=submission.github_url,
+        linkedin_url=submission.linkedin_url,
+        notes=submission.notes,
+        completed=True,
+    )
+
+    db.add(db_submission)
+    db.commit()
+    db.refresh(db_submission)
+
+    return db_submission
+
+
+def get_submission_by_day(db: Session, day: int):
+    return (
+        db.query(models.Submission)
+        .filter(models.Submission.challenge_day == day)
+        .first()
+    )
