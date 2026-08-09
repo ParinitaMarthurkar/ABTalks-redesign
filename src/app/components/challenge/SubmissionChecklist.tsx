@@ -1,4 +1,5 @@
 import { HTMLAttributes } from "react";
+import { Check } from "lucide-react";
 import Card from "../ui/Card";
 import { cn } from "../../lib/utils";
 
@@ -20,46 +21,72 @@ export default function SubmissionChecklist({
 }: SubmissionChecklistProps) {
     return (
         <Card
-            className={cn("flex flex-col gap-5", className)}
+            className={cn(
+                "rounded-[28px] border border-border/60 bg-surface p-6 shadow-[0_12px_32px_rgba(0,0,0,0.06)]",
+                className
+            )}
             {...props}
         >
             <div>
-                <h3 className="text-lg font-semibold text-text-primary">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
+                    Progress
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold text-text-primary">
                     Submission Checklist
                 </h3>
 
-                <p className="mt-1 text-sm text-text-secondary">
-                    Complete each step before submitting today&apos;s challenge.
+                <p className="mt-2 leading-7 text-text-secondary">
+                    Complete every step before submitting your challenge.
                 </p>
             </div>
 
-            <div className="flex flex-col gap-3">
-                {items.map((item) => (
+            <div className="mt-6 space-y-4">
+                {items.map((item, index) => (
                     <div
                         key={item.title}
-                        className="flex items-center gap-3 rounded-[var(--radius-button)] border border-border bg-surface-elevated px-4 py-3"
+                        className={cn(
+                            "flex items-center gap-4 rounded-2xl border p-4 transition-all duration-300",
+                            item.completed
+                                ? "border-primary/20 bg-primary/5"
+                                : "border-border bg-surface"
+                        )}
                     >
                         <div
                             className={cn(
-                                "flex h-5 w-5 shrink-0 items-center justify-center rounded border text-xs font-semibold",
+                                "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
                                 item.completed
-                                    ? "border-success bg-success text-white"
-                                    : "border-border bg-background text-transparent"
+                                    ? "bg-primary text-white"
+                                    : "bg-background border border-border text-text-secondary"
                             )}
                         >
-                            ✓
+                            {item.completed ? (
+                                <Check size={18} strokeWidth={3} />
+                            ) : (
+                                <span className="text-sm font-semibold">
+                                    {index + 1}
+                                </span>
+                            )}
                         </div>
 
-                        <span
-                            className={cn(
-                                "text-sm",
-                                item.completed
-                                    ? "font-medium text-text-primary"
-                                    : "text-text-secondary"
-                            )}
-                        >
-                            {item.title}
-                        </span>
+                        <div className="flex-1">
+                            <p
+                                className={cn(
+                                    "font-medium",
+                                    item.completed
+                                        ? "text-text-primary"
+                                        : "text-text-secondary"
+                                )}
+                            >
+                                {item.title}
+                            </p>
+                        </div>
+
+                        {item.completed && (
+                            <span className="text-xs font-semibold uppercase tracking-wide text-primary">
+                                Done
+                            </span>
+                        )}
                     </div>
                 ))}
             </div>
