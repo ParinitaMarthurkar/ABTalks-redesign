@@ -5,7 +5,32 @@ export interface HowItWorksProps extends HTMLAttributes<HTMLElement> {
     className?: string;
 }
 
-const steps = ["Learn", "Build", "Share", "Grow"];
+const steps = [
+    {
+        number: "01",
+        title: "Build",
+        description: "Complete one practical challenge every day.",
+        icon: "💻",
+    },
+    {
+        number: "02",
+        title: "Commit",
+        description: "Push your work to GitHub and track your progress.",
+        icon: "🚀",
+    },
+    {
+        number: "03",
+        title: "Share",
+        description: "Post your work publicly and build your presence.",
+        icon: "🌍",
+    },
+    {
+        number: "04",
+        title: "Grow",
+        description: "Create a portfolio recruiters can actually see.",
+        icon: "🏆",
+    },
+];
 
 export default function HowItWorks({
     className,
@@ -13,39 +38,76 @@ export default function HowItWorks({
 }: HowItWorksProps) {
     return (
         <section
-            className={cn("px-4 py-8", className)}
+            className={cn("px-6 py-16", className)}
             {...props}
         >
-            <div className="mx-auto flex max-w-sm flex-col items-center gap-8">
+            <div className="mx-auto max-w-sm">
+
+                {/* Heading */}
+
                 <div className="text-center">
-                    <h2 className="text-xl font-semibold text-text-primary">
-                        How ABTalks Works
+
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+                        How It Works
+                    </p>
+
+                    <h2 className="mt-3 text-3xl font-bold text-text-primary">
+                        Build your portfolio
+                        <br />
+                        one day at a time.
                     </h2>
 
-                    <p className="mt-2 text-sm leading-6 text-text-secondary">
-                        One small challenge every day. Build consistently and showcase your
-                        progress publicly.
+                    <p className="mt-4 leading-7 text-text-secondary">
+                        Every challenge becomes a public proof of work that
+                        strengthens your skills, consistency, and visibility.
                     </p>
+
                 </div>
 
-                <div className="flex w-full flex-col items-center gap-3">
+                {/* Timeline */}
+
+                <div className="mt-12 flex flex-col gap-6">
+
                     {steps.map((step, index) => (
-                        <div
-                            key={step}
-                            className="flex flex-col items-center gap-3"
-                        >
-                            <div className="w-full rounded-[var(--radius-card)] border border-border bg-surface px-6 py-4 text-center shadow-[var(--shadow-card)]">
-                                <span className="text-lg font-semibold text-text-primary">
-                                    {step}
-                                </span>
+                        <div key={step.number}>
+
+                            <div className="rounded-[32px] border border-border/60 bg-surface p-6 shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
+
+                                <div className="flex items-start justify-between">
+
+                                    <div>
+
+                                        <span className="text-sm font-semibold tracking-widest text-primary">
+                                            {step.number}
+                                        </span>
+
+                                        <h3 className="mt-3 text-2xl font-bold text-text-primary">
+                                            {step.title}
+                                        </h3>
+
+                                        <p className="mt-3 leading-7 text-text-secondary">
+                                            {step.description}
+                                        </p>
+
+                                    </div>
+
+                                    <div className="text-4xl">
+                                        {step.icon}
+                                    </div>
+
+                                </div>
+
                             </div>
 
                             {index < steps.length - 1 && (
-                                <span className="text-xl text-text-secondary">↓</span>
+                                <div className="mx-auto h-8 w-[2px] bg-border" />
                             )}
+
                         </div>
                     ))}
+
                 </div>
+
             </div>
         </section>
     );

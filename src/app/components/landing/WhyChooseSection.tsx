@@ -11,26 +11,26 @@ const benefits = [
     {
         title: "GitHub Portfolio",
         description:
-            "Build a public portfolio with daily commits that showcase your skills.",
+            "Create a portfolio filled with real projects and meaningful daily commits.",
         icon: "💻",
     },
     {
-        title: "Daily Consistency",
+        title: "Consistency",
         description:
-            "Develop a sustainable coding habit through small daily challenges.",
+            "Small daily challenges build a habit that compounds over time.",
         icon: "🔥",
     },
     {
         title: "Recruiter Visibility",
         description:
-            "Stay visible with consistent GitHub activity and LinkedIn updates.",
+            "Show recruiters continuous growth through GitHub and LinkedIn activity.",
         icon: "🚀",
     },
     {
-        title: "Daily Proof of Work",
+        title: "Proof of Work",
         description:
-            "Document your progress every day and create a track record of learning.",
-        icon: "✅",
+            "Every completed challenge becomes evidence of your practical skills.",
+        icon: "🏆",
     },
 ];
 
@@ -40,41 +40,65 @@ export default function WhyChooseSection({
 }: WhyChooseSectionProps) {
     return (
         <section
-            className={cn("px-4 py-8", className)}
+            className={cn("px-6 py-16", className)}
             {...props}
         >
-            <div className="mx-auto flex max-w-sm flex-col gap-6">
+            <div className="mx-auto max-w-sm">
+
+                {/* Heading */}
+
                 <div className="text-center">
-                    <h2 className="text-xl font-semibold text-text-primary">
-                        Why Students Choose ABTalks
+
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+                        Your Outcome
+                    </p>
+
+                    <h2 className="mt-3 text-3xl font-bold text-text-primary">
+                        What you&apos;ll have
+                        <br />
+                        after 60 days.
                     </h2>
 
-                    <p className="mt-2 text-sm leading-6 text-text-secondary">
-                        Build real projects, stay consistent, and grow your public portfolio.
+                    <p className="mt-4 leading-7 text-text-secondary">
+                        Every challenge you complete contributes to a stronger
+                        portfolio, better habits, and visible progress.
                     </p>
+
                 </div>
 
-                <div className="grid gap-4">
+                {/* Benefits */}
+
+                <div className="mt-10 space-y-5">
+
                     {benefits.map((benefit) => (
-                        <Card key={benefit.title}>
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xl">
+                        <Card
+                            key={benefit.title}
+                            className="rounded-[28px] border border-border/60 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        >
+                            <div className="flex items-start gap-5">
+
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-2xl">
                                     {benefit.icon}
                                 </div>
 
-                                <div className="flex flex-col">
-                                    <h3 className="text-lg font-semibold text-text-primary">
+                                <div>
+
+                                    <h3 className="text-xl font-semibold text-text-primary">
                                         {benefit.title}
                                     </h3>
 
-                                    <p className="mt-1 text-sm leading-6 text-text-secondary">
+                                    <p className="mt-2 leading-7 text-text-secondary">
                                         {benefit.description}
                                     </p>
+
                                 </div>
+
                             </div>
                         </Card>
                     ))}
+
                 </div>
+
             </div>
         </section>
     );
